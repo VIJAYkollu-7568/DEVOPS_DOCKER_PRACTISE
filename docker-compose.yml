@@ -15,7 +15,7 @@ services:
       - springboot-mysql-net
 
   backend:
-    image: 2300032728/practise-docker-backend:latest
+    image: vijay32991/practise-docker-backend:latest
     container_name: springboot
     depends_on:
       - mysqldb
@@ -26,7 +26,7 @@ services:
       - springboot-mysql-net
 
   frontend:
-    image: 2300032728/practise-docker-frontend:latest
+    image: vijay32991/practise-docker-frontend:latest
     container_name: react
     depends_on:
       - backend
