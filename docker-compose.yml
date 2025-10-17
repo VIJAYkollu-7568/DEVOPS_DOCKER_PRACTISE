@@ -1,10 +1,12 @@
+version: "3.8"
+
 services:
   mysqldb:
     image: mysql:8
     container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: klustudentdb
+      MYSQL_DATABASE: projectdb
     ports:
       - "3307:3306"
     volumes:
@@ -15,10 +17,10 @@ services:
   backend:
     image: 2300032728/practise-docker-backend:latest
     container_name: springboot
-    ports:
-      - "2000:2000"
     depends_on:
       - mysqldb
+    ports:
+      - "2000:2000"
     restart: on-failure
     networks:
       - springboot-mysql-net
@@ -26,10 +28,10 @@ services:
   frontend:
     image: 2300032728/practise-docker-frontend:latest
     container_name: react
-    ports:
-      - "3000:80"
     depends_on:
       - backend
+    ports:
+      - "3000:80"
     restart: on-failure
     networks:
       - springboot-mysql-net
