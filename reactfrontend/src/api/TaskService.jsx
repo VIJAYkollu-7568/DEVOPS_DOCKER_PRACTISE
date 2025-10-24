@@ -11,8 +11,7 @@ class TaskService {
     return axios.get(`${API_URL}/get/${id}`);
   }
 
-  createTask(task) 
-  {
+  createTask(task) {
     console.log("Backend API base URL:", API_URL);
     return axios.post(`${API_URL}/add`, task);
   }
@@ -24,7 +23,6 @@ class TaskService {
   updateStatus(id, task) {
     return axios.put(`${API_URL}/updatestatus/${id}`, task);
   }
-
 
   deleteTask(id) {
     return axios.delete(`${API_URL}/delete/${id}`);
